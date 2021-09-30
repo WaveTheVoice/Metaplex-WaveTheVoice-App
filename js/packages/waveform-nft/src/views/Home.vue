@@ -1,47 +1,34 @@
 <template>
-  <div class="home">
-        <pre>{{ wallet }}</pre>
-        <input type="text" v-model="walletProvider">
-        {{ walletProvider }}
-        <button v-if="connected" @click="disconnect">Disconnect</button>
-        <button v-else @click="connect">Connect</button>
-
-        <div v-if="connected">
-            {{ publicKey }}
+  <div class="container mx-auto">
+    <section
+      class="flex flex-col sm:justify-between items-center sm:flex-row mt-12 sm:mt-2"
+    >
+      <div class="w-full sm:w-1/3 text-left">
+        <h1
+          class="text-3xl sm:text-5xl text-center sm:text-left font-semibold text-ternary-dark dark:text-primary-light uppercase"
+        >
+          Looking for minting?
+        </h1>
+        <p
+          class="mt-4 text-2xml sm:text-4xl text-center sm:text-left font-semibold leading-none text-gray-400"
+        >
+          You are in the rigth place
+        </p>
+        <div class="my-10">
+          <router-link
+            to="/mint"
+            class="btn-primary"
+          >
+            Mint Now
+          </router-link>
         </div>
-
-        <button @click="test()">test</button>
+      </div>
+      <div class="w-full sm:w-2/3 text-right float-right mt-8 sm:mt-0">
+        <img
+          src="@/assets/images/developer-dark.svg"
+          alt="Developer"
+        />
+      </div>
+    </section>
   </div>
 </template>
-
-<script>
-
-import { useWallet, useWalletReactive } from '../libs/useWallet'
-import { testMint } from '../libs/minting'
-
-export default {
-  name: 'Home',
-
-  setup () {
-    const { wallet, walletProvider, connect, disconnect, connected, publicKey } = useWalletReactive()
-
-    const test = () => {
-      const walletSigner = useWallet()
-
-      // testMint(walletSigner)
-      console.log(walletSigner.publicKey.toBase58())
-      testMint(walletSigner)
-    }
-
-    return {
-      walletProvider,
-      wallet,
-      connect,
-      disconnect,
-      connected,
-      publicKey,
-      test
-    }
-  }
-}
-</script>

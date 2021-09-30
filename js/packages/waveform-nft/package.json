@@ -15,7 +15,11 @@
     "@solana/wallet-adapter-react": "^0.7.1",
     "@solana/wallet-adapter-wallets": "^0.6.1",
     "@solana/web3.js": "^1.21.0",
-    "@oyster/just-minting": "0.0.1"
+    "@oyster/just-minting": "0.0.1",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -30,6 +34,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "vue-cli-plugin-tailwind": "~2.0.6"
   }
 }
