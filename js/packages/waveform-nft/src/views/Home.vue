@@ -16,10 +16,10 @@
         </p>
         <div class="my-10">
           <router-link
-            to="/mint"
+            to="/input"
             class="btn-primary"
           >
-            Mint Now
+            Start
           </router-link>
         </div>
       </div>

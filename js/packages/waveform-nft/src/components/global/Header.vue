@@ -37,7 +37,7 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
  a.nav-link.router-link-exact-active {
   @apply dark:text-purple-400;
   @apply font-medium;
