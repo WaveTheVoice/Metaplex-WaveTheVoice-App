@@ -39,7 +39,7 @@
 
 <style scoped>
  a.nav-link.router-link-exact-active {
-  @apply dark:text-indigo-400;
+  @apply dark:text-purple-400;
   @apply font-medium;
 }
 </style>

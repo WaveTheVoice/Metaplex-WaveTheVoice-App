@@ -23125,6 +23125,10 @@ weighted@^0.3.0:
   resolved "https://registry.yarnpkg.com/weighted/-/weighted-0.3.0.tgz#81087f1ffe1b3f06db43dbe451451e9068166647"
   integrity sha1-gQh/H/4bPwbbQ9vkUUUekGgWZkc=
 
+wfplayerAdjusted@g00dv1n/WFPlayer:
+  version "2.1.0"
+  resolved "https://codeload.github.com/g00dv1n/WFPlayer/tar.gz/c59af17cae9d0a62e60add6d84c187a0c692a3b9"
+
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/whatwg-encoding/-/whatwg-encoding-1.0.5.tgz#5abacf777c32166a51d085d6b4f3e7d27113ddb0"
