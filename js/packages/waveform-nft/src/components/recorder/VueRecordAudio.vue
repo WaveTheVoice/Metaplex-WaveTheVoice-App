@@ -51,13 +51,14 @@ export default {
 <style lang="scss">
   $recorder-bg-color: #14f195;
   $recorder-bg-color-hover: #10c077;
+  $size: 84px;
 
   .vue-audio-recorder {
     position: relative;
     background-color: $recorder-bg-color;
     border-radius: 50%;
-    width: 64px;
-    height: 64px;
+    width: $size;
+    height: $size;
     display: inline-block;
     cursor: pointer;
     box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);

@@ -2,6 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Input from '@/views/Input.vue'
 import Mint from '@/views/Mint.vue'
+import Waveform from '@/views/Waveform.vue'
+import { useSteps } from '@/libs/useSteps'
+
+const stepsStorage = useSteps()
 
 const routes = [
   {
@@ -13,6 +17,18 @@ const routes = [
     path: '/input',
     name: 'Input',
     component: Input
+  },
+  {
+    path: '/waveform',
+    name: 'Waveform',
+    component: Waveform,
+    beforeEnter: (to, from, next) => {
+      if (stepsStorage.record.value) {
+        next()
+      } else {
+        next({ name: 'Input' })
+      }
+    }
   },
   {
     path: '/mint',

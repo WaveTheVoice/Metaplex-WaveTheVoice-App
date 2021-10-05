@@ -1,8 +1,13 @@
 
 import { ref } from 'vue'
+import WFPlayer from 'wfplayerAdjusted'
 
 const storage = {
-  record: ref(null)
+  record: ref(null),
+
+  waveImgUrl: ref(''),
+
+  wf: null
 }
 
 export const useSteps = () => storage
@@ -18,15 +23,65 @@ export async function setRecord (file) {
 
   const audioContext = new AudioContext()
 
-  const audio = await audioContext.decodeAudioData(arrayBuffer)
+  const audio = await audioContext.decodeAudioData(arrayBuffer.slice(0))
 
   audioContext.close()
 
-  const duration = audio.duration
+  const duration = Math.round(audio.duration)
 
   storage.record.value = {
     src,
     arrayBuffer,
     duration
   }
+}
+
+export function setupWF () {
+  if (storage.wf) {
+    storage.wf.destroy()
+
+    storage.wf = null
+  }
+
+  if (storage.wf) return
+
+  storage.wf = new WFPlayer({
+    container: null,
+    useWorker: false,
+    width: 1500,
+    height: 500,
+    shadowCanvas: true,
+    scrollable: false,
+    ruler: false,
+    cursor: false,
+    progress: false,
+    grid: false,
+    padding: 0,
+    backgroundColor: 'rgba(0,0,20,255)',
+    waveColor: {
+      startColor: '#793aab',
+      endColor: '#7ac4bf'
+    },
+    waveScale: 1,
+    // duration: Math.max(10, storage.record.value.duration)
+    duration: 10
+  })
+
+  storage.wf.on('finish', () => {
+    console.log('finish')
+
+    storage.wf.exportImageAsBlob()
+      .then(blob => {
+        storage.waveImgUrl.value = URL.createObjectURL(blob)
+      })
+  })
+}
+
+export function loadWave () {
+  if (!storage.record.value) return
+
+  storage.wf.lazySetOptions({
+    duration: Math.min(10, storage.record.value.duration)
+  })
+  storage.wf.load(storage.record.value.src)
 }
