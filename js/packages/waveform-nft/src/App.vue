@@ -2,7 +2,9 @@
   <div class="dark">
     <Header/>
 
-    <router-view/>
+    <div class="dark:text-primary-light text-lg font-medium">
+      <router-view />
+    </div>
 
     <Footer />
   </div>
