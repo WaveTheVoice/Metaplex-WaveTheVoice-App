@@ -3,74 +3,83 @@
 
     <h1>Record your voice or upload existing record</h1>
 
-    <select class="btn-primary p-5">
-        <option value="">--Please choose an option--</option>
-        <option value="record">Record</option>
-        <option value="upload">Upload</option>
-    </select>
+    <div class="mode-selector m-14">
+      <a-select size="large" v-model:value="mode">
+          <a-select-option value="record">Record now</a-select-option>
+          <a-select-option value="upload">Upload an existing one</a-select-option>
+      </a-select>
+    </div>
 
-    <div class="flex justify-center items-center text-xl">
-      <div>
-        <span>Your record: </span>
+    <div v-show="mode !== 'none'">
+      <div class="flex justify-center items-center text-xl">
+        <div>
+          <span>Your record: </span>
+        </div>
+      </div>
+
+      <div class="flex justify-center items-center text-xl mt-2">
+        <audio class="audio-container" :src="record.src" controls  v-if="record && record.src" />
+
+        <div class="flex justify-center items-center audio-container italic" v-else>
+          <span>EMPTY</span>
+        </div>
       </div>
     </div>
 
-    <div class="flex justify-center items-center text-xl mt-2">
-      <audio class="audio-container" :src="record.src" controls  v-if="record && record.src" />
+    <div class="mode-container mt-10" v-show="mode === 'record'">
 
-      <div class="flex justify-center items-center audio-container italic" v-else>
-        <span>......................E.M.P.T.Y........................</span>
+      <div class="mb-2 text-base italic">
+        <div>-- maximum duration is 10 second</div>
+        <div>-- press once to start recording</div>
+        <div>-- press a second time to end recording</div>
       </div>
+      <VueRecordAudio
+        mime-type="audio/webm"
+        ref="recorder"
+        class="m-5"
+        mode="press"
+        @start="onRecordStart"
+        @result="onRecordResult"
+      />
+
+      <CountDown
+      :style="{visibility: isRecording ? 'visible' : 'hidden'}"
+      class="mt-5 mb-14"
+      :seconds="10"
+      ref="countDown"
+      @finish="onTimeLimitFinish"
+      />
     </div>
 
-    <div class="mt-10 mb-2 text-base italic">
-      <div>-- maximum duration is 10 second</div>
-      <div>-- press once to start recording</div>
-      <div>-- press a second time to end recording</div>
-    </div>
-    <VueRecordAudio
-      mime-type="audio/webm"
-      ref="recorder"
-      class="m-5"
-      mode="press"
-      @start="onRecordStart"
-      @result="onRecordResult"
-    />
+    <div class="mode-container mt-10" v-show="mode === 'upload'">
 
-    <CountDown
-     :style="{visibility: isRecording ? 'visible' : 'hidden'}"
-     class="mt-5 mb-14"
-     :seconds="10"
-     ref="countDown"
-     @finish="onTimeLimitFinish"
-    />
-
-    <div class="text-xl sm:text-3xl text-center font-semibold mt-14">
-       --- OR ---
-    </div>
-
-    <div v-show="$refs.upload && $refs.upload.dropActive" class="drop-active" />
-
-     <VueUploadComponent
-        class="mt-10"
-        :multiple="false"
-        :drop="true"
-        :drop-directory="false"
-        accept="audio/*"
-        @input-file="onFileUpload"
-        ref="upload"
-     >
-      <div class="dropbox flex items-center justify-center">
-        <p class="">
-          Drag your file here to begin<br> or click to browse
-          </p>
-      </div>
-     </VueUploadComponent>
+      <VueUploadComponent
+          :multiple="false"
+          :drop="true"
+          :drop-directory="false"
+          accept="audio/*"
+          @input-file="onFileUpload"
+          ref="upload"
+      >
+        <div class="dropbox flex items-center justify-center">
+          <p class="">
+            Drag your file here to begin<br> or click to browse
+            </p>
+        </div>
+      </VueUploadComponent>
      </div>
 
-     <button class="btn-primary m-10 next-step">
+     <a-button
+      :style="{visibility: record && record.src ? 'visible' : 'hidden'}"
+      class="m-10 next-step" type="primary"
+      size="large"
+      @click="onNext"
+    >
        Next
-     </button>
+     </a-button>
+
+    <div v-show="$refs.upload && $refs.upload.dropActive" class="drop-active"></div>
+  </div>
 </template>
 
 <script>
@@ -95,6 +104,7 @@ export default {
   },
   data () {
     return {
+      mode: 'record',
       isRecording: false
     }
   },
@@ -120,12 +130,25 @@ export default {
       if (fileResponse) {
         setRecord(fileResponse.file)
       }
+    },
+    onNext () {
+      this.$router.push('waveform')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  .mode-container {
+    height: 400px;
+  }
+
+  .mode-selector {
+    .ant-select {
+      width: 250px;
+    }
+  }
+
   .audio-container {
     width: 300px;
     height: 40px;
@@ -155,6 +178,6 @@ export default {
   }
 
   .next-step {
-    width: 600px;
+    width: 300px;
   }
 </style>
