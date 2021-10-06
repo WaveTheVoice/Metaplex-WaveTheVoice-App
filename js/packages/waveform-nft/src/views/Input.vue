@@ -69,14 +69,15 @@
       </VueUploadComponent>
      </div>
 
-     <a-button
-      :style="{visibility: record && record.src ? 'visible' : 'hidden'}"
-      class="m-10 next-step" type="primary"
-      size="large"
-      @click="onNext"
-    >
-       Next
-     </a-button>
+    <div :style="{visibility: record && record.src ? 'visible' : 'hidden'}" class="flex justify-center">
+      <a-button
+        class="m-10 next-step" type="primary"
+        size="large"
+        @click="onNext"
+      >
+        Next step
+      </a-button>
+    </div>
 
     <div v-show="$refs.upload && $refs.upload.dropActive" class="drop-active"></div>
   </div>
@@ -85,7 +86,7 @@
 <script>
 import { VueRecordAudio } from '@/components/recorder'
 import CountDown from '@/components/CountDown'
-import { useSteps, setRecord } from '@/libs/useSteps'
+import { useSteps, setRecord, loadWave } from '@/libs/useSteps'
 import VueUploadComponent from 'vue-upload-component'
 
 export default {
@@ -132,6 +133,8 @@ export default {
       }
     },
     onNext () {
+      loadWave()
+
       this.$router.push('waveform')
     }
   }
@@ -177,7 +180,4 @@ export default {
     background: white;
   }
 
-  .next-step {
-    width: 300px;
-  }
 </style>

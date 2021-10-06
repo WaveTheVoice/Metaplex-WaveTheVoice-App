@@ -23,7 +23,8 @@
     "wfplayerAdjusted": "g00dv1n/WFPlayer",
     "vue-upload-component": "^3.0.50",
     "ant-design-vue": "^2.2.8",
-    "@ant-design/icons-vue": "^6.0.1"
+    "@ant-design/icons-vue": "^6.0.1",
+    "vue-color-kit": "^1.0.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

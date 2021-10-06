@@ -3,7 +3,11 @@
     <Header/>
 
     <div class="dark:text-primary-light text-lg font-medium">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </div>
 
     <Footer />

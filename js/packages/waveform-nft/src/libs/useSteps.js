@@ -43,8 +43,6 @@ export function setupWF () {
     storage.wf = null
   }
 
-  if (storage.wf) return
-
   storage.wf = new WFPlayer({
     container: null,
     useWorker: false,
@@ -57,13 +55,12 @@ export function setupWF () {
     progress: false,
     grid: false,
     padding: 0,
-    backgroundColor: 'rgba(0,0,20,255)',
+    backgroundColor: '#000014',
     waveColor: {
       startColor: '#793aab',
       endColor: '#7ac4bf'
     },
     waveScale: 1,
-    // duration: Math.max(10, storage.record.value.duration)
     duration: 10
   })
 
@@ -84,4 +81,10 @@ export function loadWave () {
     duration: Math.min(10, storage.record.value.duration)
   })
   storage.wf.load(storage.record.value.src)
+}
+
+export function setWfOptions (options) {
+  if (!storage.record.value) return
+
+  storage.wf.setOptions(options)
 }

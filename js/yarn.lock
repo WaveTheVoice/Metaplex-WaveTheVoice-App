@@ -22956,6 +22956,11 @@ vue-cli-plugin-tailwind@~2.0.6:
   resolved "https://registry.yarnpkg.com/vue-cli-plugin-tailwind/-/vue-cli-plugin-tailwind-2.0.6.tgz#c68d5f00aaae49896cf88d5dd341bcbdc900ee0a"
   integrity sha512-HgR3gSmlnypNU+hlqoiRBJsnShXSoig4XTFNZiPlyVZBtkDZdfD884wTxz+GDJHzWLPtv4wnAyuO95UCsPbyoQ==
 
+vue-color-kit@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/vue-color-kit/-/vue-color-kit-1.0.5.tgz#4524be982078d4916756e480d2c9324717169738"
+  integrity sha512-PUQzqdpI7672YYuoHdTLENHldieVMis0u9g2n7NAxiLGdiaqCD/QaYtbDOvtASpN5oSIfKxQgPV+i45MOlkKnw==
+
 vue-eslint-parser@^7.10.0:
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.11.0.tgz#214b5dea961007fcffb2ee65b8912307628d0daf"
@@ -23403,8 +23408,8 @@ weighted@^0.3.0:
   integrity sha1-gQh/H/4bPwbbQ9vkUUUekGgWZkc=
 
 wfplayerAdjusted@g00dv1n/WFPlayer:
-  version "2.1.0"
-  resolved "https://codeload.github.com/g00dv1n/WFPlayer/tar.gz/c59af17cae9d0a62e60add6d84c187a0c692a3b9"
+  version "2.1.1"
+  resolved "https://codeload.github.com/g00dv1n/WFPlayer/tar.gz/d791f4855fed358a4d8d9715cf017c0519cff3a2"
 
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"
