@@ -9,7 +9,9 @@ import {
   Modal,
   Tag,
   Input,
-  Form
+  Form,
+  Menu,
+  Dropdown
 } from 'ant-design-vue'
 
 import './assets/styles/tailwind.css'
@@ -26,5 +28,7 @@ app
   .use(Tag)
   .use(Input)
   .use(Form)
+  .use(Menu)
+  .use(Dropdown)
   .use(router)
   .mount('#app')

@@ -15,20 +15,21 @@
       <div
         class="flex justify-between items-center flex-row"
       >
-        <div>
-          <div
-            class="btn-primary"
-          >
-             Connect Wallet
-          </div>
-        </div>
+        <Wallet />
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import Wallet from '@/components/Wallet.vue'
 
+export default {
+  name: 'Header',
+  components: {
+    Wallet
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,4 @@
-import { getPhantomWallet } from '@solana/wallet-adapter-wallets'
+import { getPhantomWallet, getSolflareWallet, getSolletWallet } from '@solana/wallet-adapter-wallets'
 import { ref, computed, watch, watchEffect, unref } from 'vue'
 import useLocalStorage from './useLocalStorage'
 
@@ -9,8 +9,9 @@ export const useWalletReactive = () => walletStoreReactive
 
 export const useWallet = () => walletStore
 
+export const wallets = [getPhantomWallet(), getSolletWallet(), getSolflareWallet()]
+
 export const initWallet = (autoConnect = false) => {
-  const wallets = [getPhantomWallet()]
   const walletProvider = useLocalStorage('solana-wallet-provider')
   const wallet = ref(null)
   const adapter = ref(null)
