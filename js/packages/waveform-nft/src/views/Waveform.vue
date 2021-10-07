@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto">
-    <h1>Adjust your wave</h1>
+    <h1>Adjust your Wave</h1>
 
-    <div v-if="waveImgUrl">
+    <div class="wave-img-container" v-if="waveImgUrl">
       <img :src="waveImgUrl">
     </div>
 
@@ -36,6 +36,13 @@
           v-model:checked="colorConf.gradient"
           @change="onOptionsChange"
         />
+
+        <div class="ml-5">
+          <a-tag :color="colorConf.startColor">{{ colorConf.startColor }}</a-tag>
+          <span class="mr-1" v-show="colorConf.gradient">-</span>
+          <a-tag :color="colorConf.endColor" v-show="colorConf.gradient">{{ colorConf.endColor }}</a-tag>
+        </div>
+
         <a-button class="ml-5" type="dashed" @click="openColorModal(colorConf.key)">Change</a-button>
       </div>
     </div>
@@ -78,7 +85,7 @@
     <div class="flex justify-center m-10">
       <a-button
         size="large"
-        class="mr-5"
+        class="back-step mr-5"
         @click="onBack"
       >
         BACK
@@ -230,7 +237,17 @@ export default {
 
     onBack () {
       this.$router.push('input')
+    },
+    onNext () {
+      this.$router.push('metadata')
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .wave-img-container {
+    outline: 2px solid white;
+    padding: 5px;
+  }
+</style>
