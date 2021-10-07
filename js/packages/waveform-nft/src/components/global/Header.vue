@@ -9,24 +9,18 @@
         <router-link
           to="/"
           class="nav-link block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  md:mx-2 mb-2 sm:py-2"
-          >Home</router-link
-        >
-        <router-link
-          to="/mint"
-          class="nav-link block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  md:mx-2 mb-2 sm:py-2"
-          >Mint</router-link
+          >/START</router-link
         >
       </div>
       <div
         class="flex justify-between items-center flex-row"
       >
         <div>
-          <router-link
-            to="/mint"
+          <div
             class="btn-primary"
           >
-             Mint Now
-          </router-link>
+             Connect Wallet
+          </div>
         </div>
       </div>
     </div>

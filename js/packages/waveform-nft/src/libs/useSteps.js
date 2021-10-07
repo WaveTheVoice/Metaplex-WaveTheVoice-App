@@ -6,6 +6,7 @@ const storage = {
   record: ref(null),
 
   waveImgUrl: ref(''),
+  waveFile: null,
 
   wf: null
 }
@@ -67,15 +68,14 @@ export function setupWF () {
   storage.wf.on('finish', () => {
     console.log('finish')
 
-    storage.wf.exportImageAsBlob()
-      .then(blob => {
-        storage.waveImgUrl.value = URL.createObjectURL(blob)
-      })
+    storage.waveImgUrl.value = storage.wf.exportImageAsUrl()
   })
 }
 
 export function loadWave () {
   if (!storage.record.value) return
+
+  storage.waveFile = null
 
   storage.wf.lazySetOptions({
     duration: Math.min(10, storage.record.value.duration)
@@ -87,4 +87,10 @@ export function setWfOptions (options) {
   if (!storage.record.value) return
 
   storage.wf.setOptions(options)
+}
+
+export async function saveWaveFile () {
+  const blob = await storage.wf.exportImageAsBlob()
+
+  storage.waveFile = new File([blob], 'waveform.jpg')
 }

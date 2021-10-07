@@ -23408,8 +23408,8 @@ weighted@^0.3.0:
   integrity sha1-gQh/H/4bPwbbQ9vkUUUekGgWZkc=
 
 wfplayerAdjusted@g00dv1n/WFPlayer:
-  version "2.1.1"
-  resolved "https://codeload.github.com/g00dv1n/WFPlayer/tar.gz/d791f4855fed358a4d8d9715cf017c0519cff3a2"
+  version "2.1.2"
+  resolved "https://codeload.github.com/g00dv1n/WFPlayer/tar.gz/7f552739d554c2b1b5db1a9df2106c6f3c18a7f2"
 
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"

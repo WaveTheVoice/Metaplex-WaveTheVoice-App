@@ -19,7 +19,7 @@
             to="/input"
             class="btn-primary"
           >
-            Start
+            GO-GO!
           </router-link>
         </div>
       </div>

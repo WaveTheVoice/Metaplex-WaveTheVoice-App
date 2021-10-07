@@ -1,7 +1,16 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import { Button, Select, Slider, Switch, Modal, Tag } from 'ant-design-vue'
+import {
+  Button,
+  Select,
+  Slider,
+  Switch,
+  Modal,
+  Tag,
+  Input,
+  Form
+} from 'ant-design-vue'
 
 import './assets/styles/tailwind.css'
 import './assets/styles/app.scss'
@@ -15,5 +24,7 @@ app
   .use(Switch)
   .use(Modal)
   .use(Tag)
+  .use(Input)
+  .use(Form)
   .use(router)
   .mount('#app')

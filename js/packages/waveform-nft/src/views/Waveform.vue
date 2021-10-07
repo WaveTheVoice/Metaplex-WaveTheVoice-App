@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import { useSteps, setWfOptions } from '@/libs/useSteps'
+import { useSteps, setWfOptions, saveWaveFile } from '@/libs/useSteps'
 import { ColorPicker } from 'vue-color-kit'
 import 'vue-color-kit/dist/vue-color-kit.css'
 
@@ -239,7 +239,10 @@ export default {
       this.$router.push('input')
     },
     onNext () {
-      this.$router.push('metadata')
+      saveWaveFile()
+        .then(() => {
+          this.$router.push('metadata')
+        })
     }
   }
 }

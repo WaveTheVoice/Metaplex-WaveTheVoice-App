@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import Input from '@/views/Input.vue'
 import Mint from '@/views/Mint.vue'
 import Waveform from '@/views/Waveform.vue'
+import Metadata from '@/views/Metadata.vue'
 import { useSteps } from '@/libs/useSteps'
 
 const stepsStorage = useSteps()
@@ -27,6 +28,18 @@ const routes = [
         next()
       } else {
         next({ name: 'Input' })
+      }
+    }
+  },
+  {
+    path: '/metadata',
+    name: 'Metadata',
+    component: Metadata,
+    beforeEnter: (to, from, next) => {
+      if (stepsStorage.waveFile) {
+        next()
+      } else {
+        next({ name: 'Waveform' })
       }
     }
   },
