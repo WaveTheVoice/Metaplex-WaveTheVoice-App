@@ -18,18 +18,11 @@
 import Header from '@/components/global/Header'
 import Footer from '@/components/global/Footer'
 
-import { initWallet } from '@/libs/useWallet'
-import { setupWF } from '@/libs/useSteps'
-
 export default {
   name: 'App',
   components: {
     Header,
     Footer
-  },
-  created () {
-    initWallet(true)
-    setupWF()
   }
 }
 </script>

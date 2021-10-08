@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import { setTextData } from '@/libs/useSteps'
 
 export default {
   name: 'Metadata',
@@ -90,6 +91,7 @@ export default {
       formRef
         .validate()
         .then(() => {
+          setTextData(this.formData)
           this.$router.push('mint')
         })
         .catch((error) => {

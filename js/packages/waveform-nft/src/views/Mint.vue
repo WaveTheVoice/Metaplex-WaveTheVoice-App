@@ -1,47 +1,74 @@
 <template>
   <div class="container mx-auto">
-
-        <pre>{{ wallet }}</pre>
-        <input class="my-2 focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" v-model="walletProvider">
-        {{ walletProvider }}
-
-        <div class="flex flex-col">
-          <button class="btn-primary my-2" type="button" v-if="connected" @click="disconnect">Disconnect</button>
-          <button class="btn-primary my-2" type="button" v-else @click="connect">Connect</button>
-          <div v-if="connected">
-              {{ publicKey }}
-          </div>
-          <button class="btn-primary my-2" @click="test()">test</button>
+        <div class="flex flex-col justify-start items-center my-15">
+          <a-button
+            class="font-semibold w-full lg:w-1/2 xl:w-1/2"
+            size="large"
+            type="primary"
+            @click="mint()"
+          >
+            MINT
+          </a-button>
         </div>
+
+      <div v-show="isMintingNow" class="minting-active flex flex-col justify-center items-center">
+        <div class="minting-active-drop"></div>
+
+        <a-spin size="large"/>
+        <div class="mt-5">Minting In Progress...</div>
+        <div class="mt-1">Please, wait (up to 2 min)</div>
+      </div>
+
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 
-import { useWallet, useWalletReactive } from '../libs/useWallet'
-import { testMint } from '../libs/minting'
+import { mintWaveNFT } from '../libs/minting'
 
 export default {
-  name: 'Home',
+  name: 'Mint',
 
   setup () {
-    const { wallet, walletProvider, connect, disconnect, connected, publicKey } = useWalletReactive()
+    const isMintingNow = ref(false)
 
-    const test = () => {
-      const walletSigner = useWallet()
+    const mint = () => {
+      isMintingNow.value = true
 
-      testMint(walletSigner)
+      mintWaveNFT()
+        .finally(() => {
+          isMintingNow.value = false
+        })
     }
 
     return {
-      walletProvider,
-      wallet,
-      connect,
-      disconnect,
-      connected,
-      publicKey,
-      test
+      isMintingNow,
+      mint
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .minting-active-drop {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9998;
+    opacity: .1;
+    background: white;
+  }
+
+  .minting-active {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9999;
+  }
+
+</style>

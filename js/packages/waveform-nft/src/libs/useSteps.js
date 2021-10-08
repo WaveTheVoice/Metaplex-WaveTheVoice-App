@@ -6,9 +6,15 @@ const storage = {
   record: ref(null),
 
   waveImgUrl: ref(''),
+
   waveFile: null,
 
-  wf: null
+  wf: null,
+
+  textData: {
+    name: '',
+    description: ''
+  }
 }
 
 export const useSteps = () => storage
@@ -93,4 +99,9 @@ export async function saveWaveFile () {
   const blob = await storage.wf.exportImageAsBlob()
 
   storage.waveFile = new File([blob], 'waveform.jpg')
+}
+
+export function setTextData ({ name, description }) {
+  storage.textData.name = name
+  storage.textData.description = description
 }

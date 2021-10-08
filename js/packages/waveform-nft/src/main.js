@@ -11,14 +11,23 @@ import {
   Input,
   Form,
   Menu,
-  Dropdown
+  Dropdown,
+  Spin
 } from 'ant-design-vue'
 
 import './assets/styles/tailwind.css'
 import './assets/styles/app.scss'
 
-const app = createApp(App)
+import { initWallet } from './libs/useWallet'
+import { initConnection } from './libs/useConnection'
+import { setupWF } from './libs/useSteps'
 
+// init important components before app created
+initWallet(true)
+initConnection()
+setupWF()
+
+const app = createApp(App)
 app
   .use(Button)
   .use(Select)
@@ -30,5 +39,6 @@ app
   .use(Form)
   .use(Menu)
   .use(Dropdown)
+  .use(Spin)
   .use(router)
   .mount('#app')
