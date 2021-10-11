@@ -23,7 +23,7 @@
             class="text-base cursor-pointer flex items-center"
             color="green"
           >
-            <span>{{publicKey}}</span>
+            <span>{{publicKeyStr}}</span>
             <DownOutlined class="pl-2" />
           </a-tag>
         </a-dropdown>
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { wallets, useWalletReactive } from '@/libs/useWallet'
 import { DownOutlined, PoweroffOutlined } from '@ant-design/icons-vue'
 
@@ -92,11 +92,17 @@ export default {
       }
     }
 
+    const publicKeyStr = computed(() => {
+      const str = publicKey.value.toBase58()
+
+      return `${str.slice(0, 4)}...${str.slice(-4)}`
+    })
+
     return {
       isModalVisible,
       disconnect,
       connected,
-      publicKey,
+      publicKeyStr,
       wallets,
       onWalletSelect
     }

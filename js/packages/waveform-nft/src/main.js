@@ -12,7 +12,10 @@ import {
   Form,
   Menu,
   Dropdown,
-  Spin
+  Spin,
+  Card,
+  Alert,
+  Result
 } from 'ant-design-vue'
 
 import './assets/styles/tailwind.css'
@@ -40,5 +43,8 @@ app
   .use(Menu)
   .use(Dropdown)
   .use(Spin)
+  .use(Card)
+  .use(Alert)
+  .use(Result)
   .use(router)
   .mount('#app')

@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Input from '@/views/Input.vue'
-import Mint from '@/views/Mint.vue'
 import Waveform from '@/views/Waveform.vue'
 import Metadata from '@/views/Metadata.vue'
+import Mint from '@/views/Mint.vue'
+import Thanks from '@/views/Thanks.vue'
 import { useSteps } from '@/libs/useSteps'
 
 const stepsStorage = useSteps()
@@ -47,6 +48,11 @@ const routes = [
     path: '/mint',
     name: 'Mint',
     component: Mint
+  },
+  {
+    path: '/thanks',
+    name: 'Thanks',
+    component: Thanks
   }
 ]
 

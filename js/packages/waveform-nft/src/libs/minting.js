@@ -9,7 +9,7 @@ import { useWallet } from './useWallet'
 const stepsStorage = useSteps()
 
 const createMetadata = (wallet) => {
-  const { name, description } = stepsStorage.textData
+  const { name, description } = stepsStorage.textData.value
 
   return {
     name,
@@ -38,7 +38,7 @@ const createMetadata = (wallet) => {
   }
 }
 
-export const mintWaveNFT = async () => {
+export const mintWaveNFT = () => {
   // return new Promise((resolve) => {
   //   setTimeout (()=> {
   //     resolve(true)
@@ -53,5 +53,5 @@ export const mintWaveNFT = async () => {
 
   const maxSupply = 1
 
-  await mintNFT(connection, wallet, env, files, metaData, maxSupply)
+  return mintNFT(connection, wallet, env, files, metaData, maxSupply)
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-     <h1>Your Wave Metadata</h1>
+    <h1>Your Wave Metadata</h1>
 
     <div class="flex justify-center text-left">
       <a-form

@@ -1,14 +1,48 @@
 <template>
   <div class="container mx-auto">
+        <h1>Mint Your Wave</h1>
         <div class="flex flex-col justify-start items-center my-15">
-          <a-button
-            class="font-semibold w-full lg:w-1/2 xl:w-1/2"
-            size="large"
-            type="primary"
-            @click="mint()"
+          <a-card
+            v-if="textData && waveImgUrl && record"
+            class="w-full lg:w-1/2 xl:w-1/2 text-left mb-14"
           >
-            MINT
-          </a-button>
+            <template #cover>
+              <img alt="your wave" :src="waveImgUrl" />
+            </template>
+            <a-card-meta :title="textData.name">
+              <template #description>
+                <div>{{textData.description}}</div>
+                <div class="mt-2">duration: {{record.duration.toFixed(2)}} sec</div>
+              </template>
+            </a-card-meta>
+          </a-card>
+
+          <div> Estimated price:  ~ 0.012 SOL</div>
+
+          <div class="flex flex-col mt-14 font-semibold w-full lg:w-1/2 xl:w-1/2">
+            <a-alert
+              v-show="!connected"
+              message="Please, connect your wallet to mint"
+              type="warning"
+              show-icon
+            />
+            <a-button
+              class="mt-5"
+              size="large"
+              type="primary"
+              :disabled="!connected"
+              @click="mint()"
+            >
+              MINT
+            </a-button>
+            <a-button
+              class="mt-5"
+              size="large"
+              @click="onBack"
+            >
+              BACK TO EDITING
+            </a-button>
+          </div>
         </div>
 
       <div v-show="isMintingNow" class="minting-active flex flex-col justify-center items-center">
@@ -23,6 +57,10 @@
 </template>
 
 <script>
+import { useSteps } from '@/libs/useSteps'
+import { useWalletReactive } from '@/libs/useWallet'
+import router from '@/router'
+
 import { ref } from 'vue'
 
 import { mintWaveNFT } from '../libs/minting'
@@ -31,12 +69,17 @@ export default {
   name: 'Mint',
 
   setup () {
+    const { waveImgUrl, textData, record } = useSteps()
+    const { connected } = useWalletReactive()
     const isMintingNow = ref(false)
 
     const mint = () => {
       isMintingNow.value = true
 
       mintWaveNFT()
+        .then(() => {
+          router.push('thanks')
+        })
         .finally(() => {
           isMintingNow.value = false
         })
@@ -44,7 +87,16 @@ export default {
 
     return {
       isMintingNow,
+      connected,
+      waveImgUrl,
+      textData,
+      record,
       mint
+    }
+  },
+  methods: {
+    onBack () {
+      this.$router.push('metadata')
     }
   }
 }

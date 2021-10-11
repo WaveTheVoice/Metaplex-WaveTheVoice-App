@@ -11,10 +11,7 @@ const storage = {
 
   wf: null,
 
-  textData: {
-    name: '',
-    description: ''
-  }
+  textData: ref(null)
 }
 
 export const useSteps = () => storage
@@ -34,7 +31,7 @@ export async function setRecord (file) {
 
   audioContext.close()
 
-  const duration = Math.round(audio.duration)
+  const duration = audio.duration
 
   storage.record.value = {
     src,
@@ -72,8 +69,6 @@ export function setupWF () {
   })
 
   storage.wf.on('finish', () => {
-    console.log('finish')
-
     storage.waveImgUrl.value = storage.wf.exportImageAsUrl()
   })
 }
@@ -84,7 +79,7 @@ export function loadWave () {
   storage.waveFile = null
 
   storage.wf.lazySetOptions({
-    duration: Math.min(10, storage.record.value.duration)
+    duration: Math.min(10, Math.round(storage.record.value.duration))
   })
   storage.wf.load(storage.record.value.src)
 }
@@ -102,6 +97,8 @@ export async function saveWaveFile () {
 }
 
 export function setTextData ({ name, description }) {
-  storage.textData.name = name
-  storage.textData.description = description
+  storage.textData.value = {
+    name,
+    description
+  }
 }

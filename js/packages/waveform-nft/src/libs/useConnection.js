@@ -30,7 +30,7 @@ const getEndpointByName = (name) => {
 
 export const initConnection = () => {
   // @TODO - USE ENV VAR
-  const { name, endpoint } = getEndpointByName('devnet')
+  const { name, endpoint } = getEndpointByName('testnet')
 
   currentConnection.value.env = name
   currentConnection.value.connection = new Connection(endpoint, 'recent')
