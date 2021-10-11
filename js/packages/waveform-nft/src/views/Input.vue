@@ -1,6 +1,10 @@
 <template>
   <div class="container mx-auto">
 
+    <div class="flex justify-center items-center mb-5">
+      <WaveSteps :step="0" class="w-full lg:w-2/3 xl:w-2/3" />
+    </div>
+
     <h1>Record your voice or upload existing record</h1>
 
     <div class="mode-selector m-14">

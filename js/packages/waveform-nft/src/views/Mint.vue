@@ -1,5 +1,9 @@
 <template>
   <div class="container mx-auto">
+        <div class="flex justify-center items-center mb-5">
+          <WaveSteps :step="3" class="w-full lg:w-2/3 xl:w-2/3" />
+        </div>
+
         <h1>Mint Your Wave</h1>
         <div class="flex flex-col justify-start items-center my-15">
           <a-card

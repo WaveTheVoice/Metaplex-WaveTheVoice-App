@@ -15,7 +15,8 @@ import {
   Spin,
   Card,
   Alert,
-  Result
+  Result,
+  Steps
 } from 'ant-design-vue'
 
 import './assets/styles/tailwind.css'
@@ -24,6 +25,7 @@ import './assets/styles/app.scss'
 import { initWallet } from './libs/useWallet'
 import { initConnection } from './libs/useConnection'
 import { setupWF } from './libs/useSteps'
+import WaveSteps from './components/WaveSteps.vue'
 
 // init important components before app created
 initWallet(true)
@@ -31,6 +33,7 @@ initConnection()
 setupWF()
 
 const app = createApp(App)
+
 app
   .use(Button)
   .use(Select)
@@ -46,5 +49,9 @@ app
   .use(Card)
   .use(Alert)
   .use(Result)
+  .use(Steps)
   .use(router)
-  .mount('#app')
+
+app.component('WaveSteps', WaveSteps)
+
+app.mount('#app')
