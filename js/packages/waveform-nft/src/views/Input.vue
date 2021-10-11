@@ -5,7 +5,7 @@
       <WaveSteps :step="0" class="w-full lg:w-2/3 xl:w-2/3" />
     </div>
 
-    <h1>Record your voice or upload existing record</h1>
+    <h1>Record your voice or upload an existing record</h1>
 
     <div class="mode-selector m-14">
       <a-select size="large" v-model:value="mode">
@@ -33,9 +33,9 @@
     <div class="mode-container mt-10" v-show="mode === 'record'">
 
       <div class="mb-2 text-base italic">
-        <div>-- maximum duration is 10 second</div>
-        <div>-- press once to start recording</div>
-        <div>-- press a second time to end recording</div>
+        <div>-- maximum duration is 10 seconds</div>
+        <div>-- click once to start recording</div>
+        <div>-- click a second time to end recording</div>
       </div>
       <VueRecordAudio
         mime-type="audio/webm"
@@ -55,7 +55,9 @@
     </div>
 
     <div class="mode-container mt-10" v-show="mode === 'upload'">
-
+      <div class="m-2 text-base italic">
+        <div>-- if your record is longer than 10 seconds, it will be cropped</div>
+      </div>
       <VueUploadComponent
           :multiple="false"
           :drop="true"

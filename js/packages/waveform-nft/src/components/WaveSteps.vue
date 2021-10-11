@@ -1,9 +1,9 @@
 <template>
   <a-steps :current="step">
-    <a-step title="Input the voice"/>
-    <a-step title="Adjust the wave" />
-    <a-step title="Name the wave" />
-    <a-step title="Mint" />
+    <a-step title="Voice it"/>
+    <a-step title="Customize" />
+    <a-step title="Give it a name" />
+    <a-step title="Mint!" />
   </a-steps>
 </template>
 

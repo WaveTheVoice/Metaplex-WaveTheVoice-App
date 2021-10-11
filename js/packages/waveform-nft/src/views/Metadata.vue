@@ -22,9 +22,8 @@
         </a-form-item>
 
         <div class="m-3 text-base italic">
-            <div>-- be creative</div>
-            <div>-- example </div>
-            <div>-- example </div>
+            <div>-- express the essence of your record</div>
+            <div>-- keep it short </div>
         </div>
 
         <a-form-item label="Description:">
@@ -36,9 +35,9 @@
         </a-form-item>
 
         <div class="m-3 text-base italic">
-            <div>-- it's optional </div>
-            <div>-- example </div>
-            <div>-- example </div>
+            <div>-- what's the story behind this wave?</div>
+            <div>-- share all the details with the world</div>
+            <div>-- get creative</div>
         </div>
       </a-form>
     </div>
@@ -72,7 +71,11 @@ export default {
   setup () {
     const rules = {
       name: [
-        { required: true, message: 'Please input wave name', trigger: 'blur' }
+        {
+          required: true,
+          message: 'Please fill out this field, no one can live without a name',
+          trigger: 'blur'
+        }
       ]
     }
 

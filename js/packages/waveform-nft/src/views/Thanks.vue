@@ -2,8 +2,8 @@
   <div class="container mx-auto">
     <a-result
       status="success"
-      title="Successfully Minted Your Wave! *Check your wallet"
-      sub-title="thanks bla bla bla bla"
+      title="High Five!"
+      sub-title="Your Wave has been minted successfully! Check your wallet"
     >
     </a-result>
   </div>

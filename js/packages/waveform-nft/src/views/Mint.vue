@@ -26,7 +26,7 @@
           <div class="flex flex-col mt-14 font-semibold w-full lg:w-1/2 xl:w-1/2">
             <a-alert
               v-show="!connected"
-              message="Please, connect your wallet to mint"
+              message="Please, connect your wallet to start minting"
               type="warning"
               show-icon
             />
