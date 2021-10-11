@@ -66,9 +66,9 @@
           ref="upload"
       >
         <div class="dropbox flex items-center justify-center">
-          <p class="">
+          <p class="p-10">
             Drag your file here to begin<br> or click to browse
-            </p>
+          </p>
         </div>
       </VueUploadComponent>
      </div>
@@ -168,7 +168,6 @@ export default {
     outline-offset: -10px;
     padding: 10px 10px;
     height: 200px;
-    width: 400px;
     position: relative;
     cursor: pointer;
   }
