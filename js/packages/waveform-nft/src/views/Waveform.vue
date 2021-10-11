@@ -109,8 +109,8 @@
 
 <script>
 import { useSteps, setWfOptions, saveWaveFile } from '@/libs/useSteps'
+
 import { ColorPicker } from 'vue-color-kit'
-import 'vue-color-kit/dist/vue-color-kit.css'
 
 const DEFAULTS = {
   waveScale: 1,
