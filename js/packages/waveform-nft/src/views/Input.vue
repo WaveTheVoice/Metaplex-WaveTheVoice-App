@@ -48,7 +48,6 @@
 
       <CountDown
       :style="{visibility: isRecording ? 'visible' : 'hidden'}"
-      class="mt-5 mb-14"
       :seconds="10"
       ref="countDown"
       @finish="onTimeLimitFinish"
@@ -75,7 +74,7 @@
 
     <div :style="{visibility: record && record.src ? 'visible' : 'hidden'}" class="flex justify-center">
       <a-button
-        class="m-10 next-step" type="primary"
+        class="mb-10 next-step" type="primary"
         size="large"
         @click="onNext"
       >
@@ -147,7 +146,7 @@ export default {
 
 <style lang="scss" scoped>
   .mode-container {
-    height: 400px;
+    height: 285px;
   }
 
   .mode-selector {
