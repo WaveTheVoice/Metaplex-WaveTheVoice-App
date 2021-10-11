@@ -1,26 +1,36 @@
 <template>
   <div class="container mx-auto">
     <section
-      class="flex flex-col sm:justify-between items-center sm:flex-row mt-12 sm:mt-2"
+      class="flex flex-col items-center mt-12"
     >
-      <div class="w-full sm:w-1/3 text-left">
+      <div class="w-full">
+        <a-alert
+          class="text-center text-base sm:text-xl"
+          message="***IMPORTANT*** Currently running on Testnet. We will anonce when we will live on Mainnet"
+          type="info"
+          closable
+          banner
+        />
+
         <h1
-          class="text-3xl sm:text-5xl text-center sm:text-left font-semibold text-ternary-dark dark:text-primary-light uppercase"
+          class="mt-14 dark:text-primary-light uppercase"
         >
           Looking for minting?
         </h1>
         <p
-          class="mt-4 text-2xml sm:text-4xl text-center sm:text-left font-semibold leading-none text-gray-400"
+          class="mt-4 text-2xl font-semibold leading-none text-gray-400"
         >
           You are in the rigth place
         </p>
-        <div class="my-10">
-          <router-link
-            to="/input"
-            class="btn-primary"
+        <div class="my-14">
+          <a-button
+            class="font-semibold"
+            type="primary"
+            size="large"
+            @click="$router.push('input')"
           >
-            GO-GO!
-          </router-link>
+            Here goes!
+          </a-button>
         </div>
       </div>
     </section>
