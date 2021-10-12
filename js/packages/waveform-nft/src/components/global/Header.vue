@@ -1,23 +1,15 @@
 <template>
   <nav id="nav" class="container mx-auto">
     <div
-      class="z-10 max-w-screen-lg xl:max-w-screen-xl block flex justify-between items-center my-6"
+      class="z-10 max-w-screen-lg xl:max-w-screen-xl block flex justify-between items-center my-10"
     >
-      <div
-        class="ml-3 sm:ml-4 mt-5 sm:mt-3 sm:flex justify-center items-center"
+      <router-link
+        to="/"
+        class="nav-link block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light"
       >
-        <router-link
-          to="/"
-          class="nav-link block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  md:mx-2 mb-2 sm:py-2"
-        >
-          START
-        </router-link>
-      </div>
-      <div
-        class="flex justify-between items-center flex-row"
-      >
-        <Wallet />
-      </div>
+        START
+      </router-link>
+      <Wallet />
     </div>
   </nav>
 </template>

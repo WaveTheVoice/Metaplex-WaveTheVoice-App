@@ -16,7 +16,7 @@
       </div>
       <div class="w-full overflow-hidden lg:w-1/2 xl:w-1/2">
           <a-slider
-            class="mr-5"
+            class="mx-5"
             v-model:value="waveScale"
             :min="0.1" :max="2"
             :step="0.1"

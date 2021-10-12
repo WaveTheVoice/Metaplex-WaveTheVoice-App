@@ -29,3 +29,17 @@
 .ant-steps-finish-icon {
   vertical-align: .075em;
 }
+
+.ant-result-title {
+  @apply text-3xl sm:text-5xl text-center font-semibold m-7;
+}
+
+.ant-result-subtitle {
+  @apply text-xl sm:text-3xl text-center font-semibold m-2;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ant-message-custom-content {
+  display: flex;
+  align-items: center;
+}

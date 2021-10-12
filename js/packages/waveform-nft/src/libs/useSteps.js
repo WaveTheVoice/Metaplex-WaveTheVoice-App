@@ -79,7 +79,7 @@ export function loadWave () {
   storage.waveFile = null
 
   storage.wf.lazySetOptions({
-    duration: Math.min(10, Math.round(storage.record.value.duration))
+    duration: Math.min(10, Math.round(storage.record.value.duration) || 1)
   })
   storage.wf.load(storage.record.value.src)
 }

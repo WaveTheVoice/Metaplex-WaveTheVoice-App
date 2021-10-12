@@ -49,12 +49,13 @@
           </div>
         </div>
 
+      <div v-show="isMintingNow" class="minting-active-drop"></div>
       <div v-show="isMintingNow" class="minting-active flex flex-col justify-center items-center">
-        <div class="minting-active-drop"></div>
 
         <a-spin size="large"/>
         <div class="mt-5">Minting In Progress...</div>
-        <div class="mt-1">Please, wait (up to 2 min)</div>
+        <div class="mt-1">Please, wait (up to 2 minutes)</div>
+        <div class="mt-5">You will need to click 'Approve' twice</div>
       </div>
 
   </div>
@@ -64,10 +65,9 @@
 import { useSteps } from '@/libs/useSteps'
 import { useWalletReactive } from '@/libs/useWallet'
 import router from '@/router'
-
 import { ref } from 'vue'
-
-import { mintWaveNFT } from '../libs/minting'
+import { mintWaveNFT } from '@/libs/minting'
+import { message } from 'ant-design-vue'
 
 export default {
   name: 'Mint',
@@ -83,6 +83,9 @@ export default {
       mintWaveNFT()
         .then(() => {
           router.push('thanks')
+        })
+        .catch(err => {
+          message.error(err.message + ' Please, try again')
         })
         .finally(() => {
           isMintingNow.value = false
@@ -114,8 +117,8 @@ export default {
     left: 0;
     position: fixed;
     z-index: 9998;
-    opacity: .1;
-    background: white;
+    opacity: .7;
+    background-color: black;
   }
 
   .minting-active {

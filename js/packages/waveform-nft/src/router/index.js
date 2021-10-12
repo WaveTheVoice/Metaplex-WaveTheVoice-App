@@ -47,7 +47,14 @@ const routes = [
   {
     path: '/mint',
     name: 'Mint',
-    component: Mint
+    component: Mint,
+    beforeEnter: (to, from, next) => {
+      if (stepsStorage.waveFile && stepsStorage.textData) {
+        next()
+      } else {
+        next({ name: 'Metadata' })
+      }
+    }
   },
   {
     path: '/thanks',
