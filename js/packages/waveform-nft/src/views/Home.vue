@@ -26,14 +26,12 @@
           You are in the right place
         </p>
         <div class="my-14">
-          <a-button
-            class="font-semibold"
-            type="primary"
-            size="large"
+          <div
+            class="neon-button"
             @click="$router.push('input')"
           >
             Here we go!
-          </a-button>
+          </div>
         </div>
       </div>
     </section>

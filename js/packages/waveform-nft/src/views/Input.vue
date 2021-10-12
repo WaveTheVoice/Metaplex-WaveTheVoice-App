@@ -22,7 +22,9 @@
       </div>
 
       <div class="flex justify-center items-center text-xl mt-2">
-        <audio class="audio-container" :src="record.src" controls  v-if="record && record.src" />
+        <audio class="audio-container" controls  v-if="record && record.src" >
+          <source :src="record.src" type="audio/webm">
+        </audio>
 
         <div class="flex justify-center items-center audio-container italic" v-else>
           <span>EMPTY</span>
@@ -126,15 +128,16 @@ export default {
       this.isRecording = false
       this.$refs.countDown.stop()
 
-      setRecord(new File([blob], 'record.webm'))
+      await setRecord(new File([blob], 'record.webm'))
     },
 
     onTimeLimitFinish () {
       this.$refs.recorder.stop()
     },
-    onFileUpload (fileResponse) {
+    async onFileUpload (fileResponse) {
       if (fileResponse) {
-        setRecord(fileResponse.file)
+        await setRecord(null)
+        await setRecord(fileResponse.file)
       }
     },
     onNext () {

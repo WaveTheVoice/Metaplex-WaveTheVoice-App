@@ -31,7 +31,7 @@ export async function setRecord (file) {
 
   audioContext.close()
 
-  const duration = audio.duration
+  const duration = Math.min(10.00, audio.duration)
 
   storage.record.value = {
     src,

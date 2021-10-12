@@ -7,7 +7,7 @@
         to="/"
         class="nav-link block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light"
       >
-        START
+        HOME
       </router-link>
       <Wallet />
     </div>

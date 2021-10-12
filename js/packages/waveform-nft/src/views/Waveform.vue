@@ -67,6 +67,7 @@
         <ColorPicker
           ref="startColor"
           theme="dark"
+          :colors-default="colorsDefault"
           :color="bufferColor.startColor"
           :sucker-hide="true"
           @changeColor="onColorPick($event, 'startColor')"
@@ -78,6 +79,7 @@
         <ColorPicker
           ref="endColor"
           theme="dark"
+          :colors-default="colorsDefault"
           :color="bufferColor.endColor"
           :sucker-hide="true"
           @changeColor="onColorPick($event, 'endColor')"
@@ -129,9 +131,19 @@ export default {
   },
   setup () {
     const { waveImgUrl } = useSteps()
+    const colorsDefault = [
+      '#000000', '#FFFFFF',
+      '#FF1900', '#F47365',
+      '#FFB243', '#FFE623',
+      '#1BC7B1', '#8E00A7',
+      '#00BEFF', '#2E81FF',
+      '#5D61FF', '#FF89CF',
+      '#FC3CAD', '#BF3DCE'
+    ]
 
     return {
-      waveImgUrl
+      waveImgUrl,
+      colorsDefault
     }
   },
 
