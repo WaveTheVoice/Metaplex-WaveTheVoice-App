@@ -27,7 +27,7 @@
         </p>
         <div class="my-14">
           <div
-            class="neon-button"
+            class="neon-button text-3xl lg:text-5xl md:text-5xl"
             @click="$router.push('input')"
           >
             Here we go!

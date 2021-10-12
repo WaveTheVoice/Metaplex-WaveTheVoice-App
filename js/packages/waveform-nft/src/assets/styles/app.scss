@@ -65,14 +65,12 @@
 
 
 .neon-button {
-  font-size: 3rem;
-
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-neon);
   border: var(--clr-neon) 0.125em solid;
-  padding: 0.5em 1em;
+  padding: 0.25em 1em;
   border-radius: 0.25em;
 
   text-shadow: 0 0 0.125em hsl(0, 0%, 100% / 0.3), 0 0 0.45em currentColor;
