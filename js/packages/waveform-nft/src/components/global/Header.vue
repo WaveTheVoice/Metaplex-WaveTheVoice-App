@@ -1,7 +1,7 @@
 <template>
   <nav id="nav" class="container mx-auto">
     <div
-      class="z-10 max-w-screen-lg xl:max-w-screen-xl block flex justify-between items-center my-10"
+      class="nav-row z-10 max-w-screen-lg xl:max-w-screen-xl block flex justify-between items-center my-10"
     >
       <router-link
         to="/"
@@ -29,5 +29,9 @@ export default {
  a.nav-link.router-link-exact-active {
   @apply dark:text-purple-400;
   @apply font-medium;
+}
+
+.nav-row {
+  height: 30px;
 }
 </style>
