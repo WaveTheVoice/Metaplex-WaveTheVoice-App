@@ -21,7 +21,7 @@
             </a-card-meta>
           </a-card>
 
-          <div> Estimated price:  ~ 0.012 SOL</div>
+          <div>Estimated minting fee:  ~ 0.012 SOL</div>
 
           <div class="flex flex-col mt-14 font-semibold w-full lg:w-1/2 xl:w-1/2">
             <a-alert
