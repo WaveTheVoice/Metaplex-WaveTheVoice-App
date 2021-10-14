@@ -5,7 +5,7 @@
         &copy; 2021 WaveTheVoice
       </div>
       <div class="underline">
-        <a class="mr-5" href="https://discord.gg/DCv4UQRDqz" target="_blank">Discord</a>
+        <a class="mr-5" href="https://t.me/WaveTheVoiceNFT" target="_blank">Telegram</a>
         <a href="https://twitter.com/WaveTheVoiceNFT" target="_blank">Twitter</a>
       </div>
     </div>
